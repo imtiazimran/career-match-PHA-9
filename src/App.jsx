@@ -1,12 +1,14 @@
+import { Outlet } from 'react-router-dom'
 import './App.css'
-import { Header, NavBar } from './components/Header/Header'
+import Home from './Home/Home'
+import JobCategory from './components/JobCategory/JobCategory'
 
 function App() {
-
   return (
     <div className="App">
-     <NavBar></NavBar>
-     <Header></Header>
+      <Home></Home>
+      <JobCategory></JobCategory>
+      <Outlet></Outlet>
     </div>
   )
 }

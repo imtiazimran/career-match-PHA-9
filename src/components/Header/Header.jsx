@@ -4,8 +4,8 @@ import bannerImg from "./banner.png"
 
 const NavBar = () => {
   return (
-    <nav className="flex justify-between items-center py-4 px-6  text-white">
-      <div className="text-lg font-bold">My Website</div>
+    <nav className="flex justify-center flex-col md:flex-row md:justify-between py-4 px-6  ">
+      <div className="text-lg font-bold text-center md:text-left">My Website</div>
       <nav className="flex justify-center space-x-4 text-gray-600">
         <ActiveLink to="/" className="hover:text-blue-700 hover:underline">Home</ActiveLink>
         <ActiveLink to="/statistics" className="hover:text-blue-700 hover:underline">Statistics</ActiveLink>
@@ -21,7 +21,7 @@ const NavBar = () => {
 
 const Header = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between bg-gray-100 py-4 px-6">
+    <div className="flex flex-col md:flex-row items-center justify-between pt-4 px-24">
     <div className="md:w-1/2 mx-auto">
       <h1 className="text-4xl font-bold">Welcome to our Website!</h1>
       <p className="text-gray-700 mt-4">
