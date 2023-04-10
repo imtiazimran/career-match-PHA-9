@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
+import Home from './components/Home/Home'
 import './index.css'
 import {
   createBrowserRouter,
@@ -9,12 +10,17 @@ import {
 import Statistics from './components/Statistics/Statistics';
 import AppliedJob from './components/Applied_job/AppliedJob'
 import Blog from './components/Blog/Blog'
+import JobDetails from './components/FeatureJobs/JobDetails'
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
     children: [
+      {
+        path: '/',
+        element:  <Home></Home>
+      },
       {
         path: "/statistics",
         element: <Statistics></Statistics>
@@ -27,6 +33,14 @@ const router = createBrowserRouter([
         path: "/blog",
         element: <Blog></Blog>
       },
+      {
+        path:"/jobDetails",
+        element: <JobDetails></JobDetails>
+      },
+      {
+        path:"/job/:jobId",
+        element: <JobDetails></JobDetails>
+      }
     ]
   },
 ]);
