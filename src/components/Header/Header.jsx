@@ -22,7 +22,7 @@ const NavBar = () => {
 
 const Header = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between pt-4 px-60 bg-gray-100">
+    <div className="flex flex-col md:flex-row items-center justify-between pt-4 px-2 md:px-60 bg-gray-100">
     <div className="md:w-2/4 mx-auto">
       <h1 className="text-4xl font-bold">One Step Closer <br /> To Achieving <br /> <span className="text-indigo-500">Your Goals</span></h1>
       <p className="text-gray-700 mt-4">Another stride forward, toward the realization

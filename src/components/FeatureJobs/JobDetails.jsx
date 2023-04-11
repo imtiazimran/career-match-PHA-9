@@ -8,16 +8,17 @@ const JobDetails = () => {
     const matchedData = jobs.find(job => job.id === jobId)
     const { category, company, jobTitle, location
         , logo, salaryRange, id, jobDescription, jobResponsibilities, experience, educationalRequirements, responsibilities} = matchedData
-        console.log(matchedData)
+        
     return (
         <div>
-            <div className='bg-emerald-400 text-center  '>
-                <h2 className='p-20 text-3xl font-medium bg-center bg-cover text-indigo-700'  style={{ backgroundImage: `url('${logo}')` }}>Job Details of: {company}</h2>
+            <div className='bg-emerald-400 text-center md:flex items-center'>
+                <img className='w-1/5' src={logo} alt="" />
+                <h2 className='md:p-20 md:text-3xl font-medium bg-center bg-cover md:ml-28 text-indigo-700'>Job Details of: {company}</h2>
             </div>
             <div className='detailsContainer w-3/4 mx-auto'>
                 <div className='requarments'>
                     <p><span className='text-md font-semibold'>Job Description:</span> {jobDescription}</p>
-                    <p className='mt-5'><span className='text-md font-semibold'>Job Responsibility:</span> {jobResponsibilities  ? jobResponsibilities : responsibilities.map(respons => <p className='mt-2'>{respons}</p>)}</p>
+                    <p className='mt-5'><span className='text-md font-semibold'>Job Responsibility:</span> {jobResponsibilities  ? jobResponsibilities : responsibilities.map(respons => <ul className='list-disc'><li>{respons}</li></ul>)}</p>
                     <p className='mt-5'><span className='text-md font-semibold'>Educational Requirements:</span> {educationalRequirements ? educationalRequirements : "Data Not found"}</p>
                     <p className='mt-5'><span className='text-md font-semibold'>Job Experience:</span> {experience ? experience : "Data Not found"}</p>
 
