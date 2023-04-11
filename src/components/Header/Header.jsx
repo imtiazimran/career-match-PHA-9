@@ -1,6 +1,7 @@
 import React from "react";
 import ActiveLink from "./ActiveLink/ActiveLink";
 import bannerImg from "./banner.png"
+import './ActiveLink/ActiveLink.css'
 
 const NavBar = () => {
   return (

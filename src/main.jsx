@@ -39,7 +39,8 @@ const router = createBrowserRouter([
       },
       {
         path:"/job/:jobId",
-        element: <JobDetails></JobDetails>
+        element: <JobDetails></JobDetails>,
+        loader: () => fetch('https://api.jsonbin.io/v3/b/643402d4ebd26539d0a821a6')
       }
     ]
   },
