@@ -6,9 +6,9 @@ const FeatureJobs = () => {
     const jobs = useContext(jobContext)
     return (
         <div>
-            <h2 className="text-2xl text-center font-bold mb-4">Feature Jobs</h2>
+            <h2 className="text-4xl text-center font-bold mb-4">Feature Jobs</h2>
             <p className="mb-4 text-center">Explore thousends of job opportunities with all the informantion you need. its your future</p>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-4 w-3/5 mx-auto'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-4 w-3/4 mx-auto'>
                 {
                     jobs.map(job => <Job key={job.id} job={job}></Job>)
                 }

@@ -1,14 +1,25 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
-import { addToDb } from '../../../public/fakedb';
+import { addToDb, getStoredJobIds } from '../../../public/fakedb';
+import Footer from '../Footer/Footer'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const JobDetails = () => {
     const { jobId } = useParams();
     const loaderData = useLoaderData()
     const jobs = loaderData.record
     const matchedData = jobs.find(job => job.id === jobId)
-    const { category, company, jobTitle, location
-        , logo, salaryRange, id, jobDescription, jobResponsibilities, experience, educationalRequirements, responsibilities } = matchedData
+    const { company, jobTitle, location, logo, salaryRange, id, jobDescription, jobResponsibilities, experience, educationalRequirements, responsibilities } = matchedData
+    const addedId = getStoredJobIds()
+    const handleApplyNow = () => {
+        addToDb(id);
+        toast.success("You have applied for this job successfully!");
+        if(id === addedId){
+            console.log(true)
+        }
+    }
 
     return (
         <div>
@@ -37,10 +48,13 @@ const JobDetails = () => {
                         <p className='mt-2'><span className='text-md font-semibold'>Address:</span> {location}</p>
                     </div>
                     <div className='flex justify-center'>
-                        <button onClick={() =>addToDb(id)} className='px-2 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-md text-white my-2 w-full'>Apply Now</button>
+                        <button onClick={handleApplyNow} className='px-2 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-md text-white my-2 w-full'>Apply Now</button>
                     </div>
                 </div>
             </div>
+            <br />
+            <br />
+            <Footer></Footer>
         </div>
     );
 };

@@ -33,7 +33,7 @@ const JobCategory = () => {
   return (
     <div className="flex justify-center">
       <div className="job-category bg-white p-6 rounded-lg  w-full md:w-auto">
-        <h2 className="text-2xl text-center font-bold mb-4">Job Categories</h2>
+        <h2 className="text-4xl text-center font-bold mb-4">Job Categories</h2>
         <p className="mb-4 text-center">Explore the available job categories below.</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
           {categories.map((category) => (

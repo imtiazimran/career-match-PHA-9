@@ -1,12 +1,15 @@
 import React from "react";
 import ActiveLink from "./ActiveLink/ActiveLink";
 import bannerImg from "./banner.png"
+import logo from "./logo.png"
 import './ActiveLink/ActiveLink.css'
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <nav className="flex justify-center flex-col md:flex-row md:justify-between py-4 px-6 bg-gray-100 ">
-      <div className="text-lg font-bold text-center md:text-left">My Website</div>
+    <Link to="/">
+    <div className="text-lg font-bold text-center md:text-left w-36"><img className="w-100" src={logo} alt="" /></div></Link>
       <nav className="flex justify-center space-x-4 text-gray-600">
         <ActiveLink to="/" className="hover:text-blue-700 hover:underline">Home</ActiveLink>
         <ActiveLink to="/statistics" className="hover:text-blue-700 hover:underline">Statistics</ActiveLink>
@@ -24,8 +27,8 @@ const Header = () => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-between pt-4 px-2 md:px-60 bg-gray-100">
     <div className="md:w-2/4 mx-auto">
-      <h1 className="text-4xl font-bold">One Step Closer <br /> To Achieving <br /> <span className="text-indigo-500">Your Goals</span></h1>
-      <p className="text-gray-700 mt-4">Another stride forward, toward the realization
+      <h1 className="text-5xl font-bold">One Step Closer <br /> To Achieving <br /> <span className="text-indigo-500">Your Goals</span></h1>
+      <p className="text-xl text-gray-700 mt-4">Another stride forward, toward the realization
        of thy heart's desires,  draws thee nigh. Thy hopes, once ephemeral as the mist that 
        creeps o'er yonder moor, now take on flesh and form, 
       </p>
