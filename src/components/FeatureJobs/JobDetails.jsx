@@ -12,15 +12,10 @@ const JobDetails = () => {
     const jobs = loaderData.record
     const matchedData = jobs.find(job => job.id === jobId)
     const { company, jobTitle, location, logo, salaryRange, id, jobDescription, jobResponsibilities, experience, educationalRequirements, responsibilities } = matchedData
-    const addedId = getStoredJobIds()
     const handleApplyNow = () => {
         addToDb(id);
         toast.success("You have applied for this job successfully!");
-        if(id === addedId){
-            console.log(true)
-        }
     }
-
     return (
         <div>
             <div className='bg-emerald-400 text-center md:flex items-center'>
