@@ -1,44 +1,35 @@
-// use local storage to manage cart data
 const addToDb = id => {
-    let shoppingCart = getShoppingCart();
-    // add quantity
-    const quantity = shoppingCart[id];
-    if (!quantity) {
-        shoppingCart[id] = 1;
+    let storedJobIds = getStoredJobIds();
+    if (!storedJobIds.includes(id)) {
+        storedJobIds.push(id);
+        localStorage.setItem('applied-job-ids', JSON.stringify(storedJobIds));
     }
-    else {
-        const newQuantity = quantity + 1;
-        shoppingCart[id] = newQuantity;
+}
+
+const getStoredJobIds = () => {
+    let storedJobIds = [];
+    const storedJobIdsString = localStorage.getItem('applied-job-ids');
+    if (storedJobIdsString) {
+        storedJobIds = JSON.parse(storedJobIdsString);
     }
-    localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
+    return storedJobIds;
 }
 
 const removeFromDb = id => {
-    const shoppingCart = getShoppingCart();
-    if (id in shoppingCart) {
-        delete shoppingCart[id];
-        localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
+    let storedJobIds = getStoredJobIds();
+    if (storedJobIds.includes(id)) {
+        storedJobIds = storedJobIds.filter(jobId => jobId !== id);
+        localStorage.setItem('applied-job-ids', JSON.stringify(storedJobIds));
     }
 }
 
-const getShoppingCart = () => {
-    let shoppingCart = {};
-
-    //get the shopping cart from local storage
-    const storedCart = localStorage.getItem('shopping-cart');
-    if (storedCart) {
-        shoppingCart = JSON.parse(storedCart);
-    }
-    return shoppingCart;
-}
-
-const deleteShoppingCart = () => {
-    localStorage.removeItem('shopping-cart');
+const deleteStoredJobIds = () => {
+    localStorage.removeItem('applied-job-ids');
 }
 
 export {
     addToDb,
     removeFromDb,
-    getShoppingCart,
-    deleteShoppingCart
+    getStoredJobIds,
+    deleteStoredJobIds
 }

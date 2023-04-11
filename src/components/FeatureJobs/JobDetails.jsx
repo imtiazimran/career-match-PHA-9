@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import { addToDb } from '../../../public/fakedb';
 
 const JobDetails = () => {
     const { jobId } = useParams();
@@ -7,8 +8,8 @@ const JobDetails = () => {
     const jobs = loaderData.record
     const matchedData = jobs.find(job => job.id === jobId)
     const { category, company, jobTitle, location
-        , logo, salaryRange, id, jobDescription, jobResponsibilities, experience, educationalRequirements, responsibilities} = matchedData
-        
+        , logo, salaryRange, id, jobDescription, jobResponsibilities, experience, educationalRequirements, responsibilities } = matchedData
+
     return (
         <div>
             <div className='bg-emerald-400 text-center md:flex items-center'>
@@ -18,7 +19,7 @@ const JobDetails = () => {
             <div className='detailsContainer w-3/4 mx-auto'>
                 <div className='requarments'>
                     <p><span className='text-md font-semibold'>Job Description:</span> {jobDescription}</p>
-                    <p className='mt-5'><span className='text-md font-semibold'>Job Responsibility:</span> {jobResponsibilities  ? jobResponsibilities : responsibilities.map(respons => <ul className='list-disc'><li>{respons}</li></ul>)}</p>
+                    <p className='mt-5'><span className='text-md font-semibold'>Job Responsibility:</span> {jobResponsibilities ? jobResponsibilities : responsibilities.map(respons => <ul className='list-disc'><li>{respons}</li></ul>)}</p>
                     <p className='mt-5'><span className='text-md font-semibold'>Educational Requirements:</span> {educationalRequirements ? educationalRequirements : "Data Not found"}</p>
                     <p className='mt-5'><span className='text-md font-semibold'>Job Experience:</span> {experience ? experience : "Data Not found"}</p>
 
@@ -30,12 +31,14 @@ const JobDetails = () => {
                         <p><span className='text-md font-semibold'>Job Title:</span>{jobTitle}</p>
                         <p className='mt-2'><span className='text-md font-semibold'>Salary:</span>{salaryRange}</p>
                         <h2 className='text-xl font-semibold mt-2 pb-3'>Contact Information</h2>
-                        <hr/>
+                        <hr />
                         <p className='mt-2'><span className='text-md font-semibold'>Phone:</span> +88014-779-93 25</p>
                         <p className='mt-2'><span className='text-md font-semibold'>Email:</span> example@host.com</p>
                         <p className='mt-2'><span className='text-md font-semibold'>Address:</span> {location}</p>
                     </div>
-                    <div className='flex justify-center'><button className='px-2 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-md text-white my-2 w-full'>Apply Now</button></div>
+                    <div className='flex justify-center'>
+                        <button onClick={() =>addToDb(id)} className='px-2 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-md text-white my-2 w-full'>Apply Now</button>
+                    </div>
                 </div>
             </div>
         </div>
