@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComposedChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import { ComposedChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const assignmentData = [
   {
@@ -46,13 +46,15 @@ const assignmentData = [
 
 const Chart = () => {
   return (
-    <ComposedChart className='mx-auto mt-8' width={600} height={300} data={assignmentData}>
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Tooltip />
-      <Line type="monotone" dataKey="score" stroke="#8884d8" />
-    </ComposedChart>
+    <ResponsiveContainer className="mx-auto" width="80%" height={300}>
+      <ComposedChart className='md:mt-20' data={assignmentData}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Line type="monotone" dataKey="score" stroke="#8884d8" />
+      </ComposedChart>
+    </ResponsiveContainer>
   );
 };
 
