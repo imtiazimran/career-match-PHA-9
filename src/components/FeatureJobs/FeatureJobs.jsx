@@ -1,9 +1,22 @@
-import React, { useContext} from 'react';
+import React, {  useEffect, useState} from 'react';
 import Job from './Job';
 import { jobContext } from '../Home/Home';
 
 const FeatureJobs = () => {
-    const jobs = useContext(jobContext)
+    const [jobs, setJobs] = useState([])
+    const [slicer, setSlicer] = useState([])
+    useEffect(() => {
+        fetch('https://api.jsonbin.io/v3/b/643402d4ebd26539d0a821a6')
+            .then(res => res.json())
+            .then(data => {
+                setSlicer(data.record);
+                setJobs(data.record.slice(0, 4))
+            })
+           
+    }, [])
+    const handleShowAllJobs = () => {
+        setJobs(slicer);
+    };
     return (
         <div>
             <h2 className="text-4xl text-center font-bold mb-4">Feature Jobs</h2>
@@ -14,7 +27,7 @@ const FeatureJobs = () => {
                 }
             </div>
             <div className='w-1/5 text-center mx-auto m-4'>
-                <button className='px-2 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-md text-white my-2 text-center mx-auto'>See All Jobs</button>
+                <button onClick={handleShowAllJobs} className='px-2 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-md text-white my-2 text-center mx-auto'>See All Jobs</button>
             </div>
         </div>
     );
