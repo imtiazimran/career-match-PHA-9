@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
-import { addToDb, getStoredJobIds } from '../../../public/fakedb';
+import { addToDb } from '../../../public/fakedb';
 import Footer from '../Footer/Footer'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
