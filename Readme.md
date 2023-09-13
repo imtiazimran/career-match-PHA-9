@@ -11,4 +11,4 @@ CareerMatch is a website where you can find a variety of job opportunities and a
 * Built with React and Tailwind CSS
 * Uses fake data for testing purposes
 Live Website
-Check out the live website here: malicious-cub.surge.sh
+Check out the live website here: http://malicious-cub.surge.sh/
